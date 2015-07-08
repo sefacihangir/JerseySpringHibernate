@@ -6,8 +6,11 @@
 
     <groupId>com.rajesh.galla</groupId>
     <artifactId>spring-play</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-
+    <modules>
+        <module>Spring-Jersey</module>
+    </modules>
 
 
     <dependencyManagement>
@@ -74,11 +77,42 @@
         </dependency>
 
         <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-spring3</artifactId>
+            <version>2.19</version>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.9</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
+
     </dependencies>
 
     <build>

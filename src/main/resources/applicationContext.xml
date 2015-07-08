@@ -8,6 +8,9 @@
        http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
-    <aop:aspectj-autoproxy />
+    <bean id="userDetailsBO" class="com.rajesh.galla.bo.UserDetailsBO" />
 
+    <bean id="userResource" class="com.rajesh.galla.resource.UserResource">
+        <property name="userDetailsBO" ref="userDetailsBO"/>
+    </bean>
 </beans>

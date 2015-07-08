@@ -1,0 +1,24 @@
+/target/*
+/.idea/*
+
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+Spring-Jersey
+target
+src/main/java/com/rajesh/galla/config
+src/main/java/com/rajesh/galla/aspect
+src/main/java/com/rajesh/galla/controller
+src/main/java/com/rajesh/galla/entity/Triangle.java
+src/main/java/com/rajesh/galla/ApplicationContextAwareTest.java
+src/main/java/com/rajesh/galla/Main.java

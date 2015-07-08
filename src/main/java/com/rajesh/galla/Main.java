@@ -1,6 +1,9 @@
 package com.rajesh.galla;
 
+import com.rajesh.galla.bo.UserDetailsBO;
 import com.rajesh.galla.config.ApplicationConfig;
+import com.rajesh.galla.config.BOConfig;
+import com.rajesh.galla.config.DAOConfig;
 import com.rajesh.galla.entity.Triangle;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -34,8 +37,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        Triangle triangle = context.getBean("triangle",Triangle.class);
-        System.out.println("Point A is " + triangle.getPointA());
+        UserDetailsBO userDetailsBO = context.getBean("userDetailsBO",UserDetailsBO.class);
+        System.out.println("UserDetailsBO " + userDetailsBO);
 
         final HttpServer server = startServer();
         System.out.println(String.format("Jersey app started with WADL available at "
