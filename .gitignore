@@ -16,9 +16,3 @@ hs_err_pid*
 
 Spring-Jersey
 target
-src/main/java/com/rajesh/galla/config
-src/main/java/com/rajesh/galla/aspect
-src/main/java/com/rajesh/galla/controller
-src/main/java/com/rajesh/galla/entity/Triangle.java
-src/main/java/com/rajesh/galla/ApplicationContextAwareTest.java
-src/main/java/com/rajesh/galla/Main.java

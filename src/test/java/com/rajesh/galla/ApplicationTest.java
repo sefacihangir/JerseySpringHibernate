@@ -1,5 +1,6 @@
 package com.rajesh.galla;
 
+import com.rajesh.galla.bo.TriangleBO;
 import com.rajesh.galla.config.ApplicationConfig;
 import com.rajesh.galla.entity.Triangle;
 import org.springframework.beans.BeansException;
@@ -12,12 +13,14 @@ public class ApplicationTest{
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        ApplicationContextAwareTest test = context.getBean("applicationContextAwareTest", ApplicationContextAwareTest.class);
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        TriangleBO triangleBO = context.getBean("triangleBO",TriangleBO.class);
 
-        Triangle triangle = test.getApplicationContext().getBean("triangle", Triangle.class);
+        Triangle triangle = new Triangle();
+        triangle.setPointA("Point A");
+        triangle.setPointB("Point B");
+        triangle.setPointC("Point C");
 
-        System.out.println(triangle);
-
+        triangleBO.save(triangle);
     }
 }

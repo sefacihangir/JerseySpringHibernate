@@ -5,9 +5,9 @@
 
     <display-name>Spring-Jersey</display-name>
 
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--</listener>-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
     <servlet>
         <servlet-name>SpringApplication</servlet-name>
@@ -19,15 +19,17 @@
             </param-value>
         </init-param>
         <init-param>
-            <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.rajesh.galla.r</param-value>
-        </init-param>
-        <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
                 com.rajesh.galla.config.ApplicationConfig
             </param-value>
         </init-param>
+
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>classpath:com.rajesh.galla.resource</param-value>
+        </init-param>
+
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
             <param-value>com.rajesh.galla.MyApplication</param-value>

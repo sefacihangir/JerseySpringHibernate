@@ -18,7 +18,7 @@ public class UserResource {
     public UserResource() {
     }
 
-    @Autowired
+//    @Autowired
     private UserDetailsBO userDetailsBO;
 
     @GET

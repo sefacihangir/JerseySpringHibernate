@@ -16,7 +16,6 @@ public class Triangle {
         return getPointA()+", "+getPointB()+", "+getPointC();
     }
 
-    @Bean
     public String getPointA() {
         return pointA;
     }

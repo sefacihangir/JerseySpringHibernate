@@ -1,6 +1,7 @@
 package com.rajesh.galla;
 
 import com.rajesh.galla.resource.UserResource;
+import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 
@@ -13,6 +14,7 @@ public class MyApplication extends ResourceConfig{
 
         System.out.println("MyApplication");
         register(RequestContextFilter.class);
+        register(JacksonFeature.class);
         register(UserResource.class);
     }
 }

@@ -1,16 +1,15 @@
 package com.rajesh.galla;
 
 import com.rajesh.galla.bo.UserDetailsBO;
-import com.rajesh.galla.config.ApplicationConfig;
-import com.rajesh.galla.config.BOConfig;
-import com.rajesh.galla.config.DAOConfig;
 import com.rajesh.galla.entity.Triangle;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
 
 import java.io.IOException;
 import java.net.URI;
@@ -36,14 +35,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        UserDetailsBO userDetailsBO = context.getBean("userDetailsBO",UserDetailsBO.class);
-        System.out.println("UserDetailsBO " + userDetailsBO);
 
-        final HttpServer server = startServer();
-        System.out.println(String.format("Jersey app started with WADL available at "
-                + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
-        System.in.read();
-        server.shutdown();
     }
 }

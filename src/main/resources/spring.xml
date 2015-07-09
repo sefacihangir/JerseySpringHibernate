@@ -10,4 +10,51 @@
 
     <aop:aspectj-autoproxy />
 
+    <context:component-scan base-package="com.rajesh.galla, com.rajesh.galla.bo,
+    com.rajesh.galla.dao, com.rajesh.galla.entity" />
+
+    <!--
+		Instructing Spring to perform declarative transaction management
+		automatically on annotated classes.
+	-->
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.orm.hibernate3.HibernateTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--<property name="sessionFactory" ref="sessionFactory"/>-->
+    <!--</bean>-->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:database.properties</value>
+        </property>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+        <property name="driverClassName" value="${connection.driver_class}" />
+        <property name="url" value="${connection.url}" />
+        <property name="username" value="${connection.username}" />
+        <property name="password" value="${connection.password}" />
+    </bean>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="triangleBO" class="com.rajesh.galla.bo.TriangleBO">
+        <property name="triangleDAO" ref="triangleDAO"/>
+    </bean>
+
+    <bean id="triangleDAO" class="com.rajesh.galla.dao.TriangleDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 </beans>
