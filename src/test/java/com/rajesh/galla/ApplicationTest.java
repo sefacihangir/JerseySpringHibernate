@@ -13,7 +13,7 @@ public class ApplicationTest{
 
     public static void main(String[] args) {
 
-//        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         TriangleBO triangleBO = context.getBean("triangleBO",TriangleBO.class);
 

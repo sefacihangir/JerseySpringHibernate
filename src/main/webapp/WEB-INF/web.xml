@@ -5,9 +5,9 @@
 
     <display-name>Spring-Jersey</display-name>
 
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
 
     <servlet>
         <servlet-name>SpringApplication</servlet-name>

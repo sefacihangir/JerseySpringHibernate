@@ -1,19 +1,12 @@
 package com.rajesh.galla.config;
 
-import com.rajesh.galla.ApplicationContextAwareTest;
-import com.rajesh.galla.aspect.SampleAspect;
-import com.rajesh.galla.bo.UserDetailsBO;
-import com.rajesh.galla.entity.Triangle;
-import com.rajesh.galla.resource.UserResource;
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ImportResource("classpath:spring.xml")
+@ImportResource("classpath:applicationContext.xml")
 public class ApplicationConfig {
 
     public ApplicationConfig() {
