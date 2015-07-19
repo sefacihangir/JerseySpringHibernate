@@ -2,13 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/aop
-    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
-
-    <aop:aspectj-autoproxy />
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="com.rajesh.galla, com.rajesh.galla.bo,
     com.rajesh.galla.dao, com.rajesh.galla.entity, com.rajesh.galla.config, com.rajesh.galla.resource" />
@@ -57,4 +52,13 @@
     <bean id="triangleDAO" class="com.rajesh.galla.dao.TriangleDAO">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+    <bean id="userDetailsBO" class="com.rajesh.galla.bo.UserDetailsBO">
+        <property name="userDetailsDAO" ref="userDetailsDAO"/>
+    </bean>
+
+    <bean id="userDetailsDAO" class="com.rajesh.galla.dao.UserDetailsDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
 </beans>

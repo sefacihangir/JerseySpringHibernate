@@ -1,51 +1,66 @@
 package com.rajesh.galla.config;
 
+import com.rajesh.galla.aspect.SampleAspect;
+import com.rajesh.galla.bo.UserDetailsBO;
+import com.rajesh.galla.dao.UserDetailsDAO;
+import com.rajesh.galla.entity.Triangle;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+@EnableAspectJAutoProxy
 @Configuration
 @EnableTransactionManagement
 @ImportResource("classpath:applicationContext.xml")
 public class ApplicationConfig {
 
+    @Autowired
+    private SessionFactory sessionFactory;
+
     public ApplicationConfig() {
     }
 
+    @Bean
+    public Triangle triangle() {
+
+        Triangle triangle = new Triangle();
+        triangle.setPointA("pointA");
+        triangle.setPointB("pointB");
+        triangle.setPointC("pointC");
+        return triangle;
+    }
+
+    @Bean
+    public SampleAspect sampleAspect() {
+
+        return new SampleAspect();
+    }
+
 //    @Bean
-//    public Triangle triangle() {
+//    public UserDetailsDAO userDetailsDAO() {
 //
-//        Triangle triangle = new Triangle();
-//        triangle.setPointA("pointA");
-//        triangle.setPointB("pointB");
-//        triangle.setPointC("pointC");
-//        return triangle;
+//        UserDetailsDAO userDetailsDAO = new UserDetailsDAO();
+//        userDetailsDAO.setSessionFactory(sessionFactory);
+//        return userDetailsDAO;
 //    }
 //
 //    @Bean
-//    public SampleAspect sampleAspect() {
+//    public UserDetailsBO userDetailsBO() {
 //
-//        return new SampleAspect();
+//        UserDetailsBO userDetailsBO = new UserDetailsBO();
+//        userDetailsBO.setUserDetailsDAO(userDetailsDAO());
+//        return userDetailsBO;
 //    }
-//
-//    @Bean
-//    public ApplicationContextAwareTest applicationContextAwareTest() {
-//
-//        return new ApplicationContextAwareTest();
-//    }
-//
-//    @Required
-//    @Bean
-//    UserDetailsBO userDetailsBO() {
-//
-//        return new UserDetailsBO();
-//    }
-//
-//    @Bean
-//    UserResource userResource() {
-//
-//        UserResource userResource = new UserResource();
-//        userResource.setUserDetailsBO(userDetailsBO());
-//        return userResource;
-//    }
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 }

@@ -13,14 +13,10 @@ public class ApplicationTest{
 
     public static void main(String[] args) {
 
-//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         TriangleBO triangleBO = context.getBean("triangleBO",TriangleBO.class);
 
-        Triangle triangle = new Triangle();
-        triangle.setPointA("Point A");
-        triangle.setPointB("Point B");
-        triangle.setPointC("Point C");
+        Triangle triangle = context.getBean("triangle", Triangle.class);
 
         triangleBO.save(triangle);
     }

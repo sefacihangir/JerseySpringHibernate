@@ -1,6 +1,5 @@
 package com.rajesh.galla.resource;
 
-import com.mysql.jdbc.log.LogFactory;
 import com.rajesh.galla.bo.UserDetailsBO;
 import com.rajesh.galla.entity.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,36 +11,38 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @Component
-@Path("/users")
+@Path("/user")
 public class UserResource {
 
     public Logger logger = Logger.getLogger("User Resource");
 
+    @Autowired
+    private UserDetailsBO userDetailsBO;
+
     public UserResource() {
     }
 
-    @Autowired
-    private UserDetailsBO userDetailsBO;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDetails> getUsers() {
 
         logger.info("userDetailsBO " + userDetailsBO);
-        return userDetailsBO.setUsers();
+        return userDetailsBO.getUsers();
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public List<UserDetails> postUsers() {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<UserDetails> postUser() {
 
         logger.info("userDetailsBO " + userDetailsBO);
-        return userDetailsBO.setUsers();
+        return userDetailsBO.postUser();
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public List<UserDetails> putUsers() {
+    public List<UserDetails> putUser() {
 
         logger.info("userDetailsBO " + userDetailsBO);
         return userDetailsBO.setUsers();
