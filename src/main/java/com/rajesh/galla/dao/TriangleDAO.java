@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by rajeshgalla on 7/9/15.
  */
@@ -19,6 +21,11 @@ public class TriangleDAO extends HibernateDaoSupport {
     @Transactional
     public void save(Triangle triangle) {
         getHibernateTemplate().getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);
-        getHibernateTemplate().save(triangle);
+        getHibernateTemplate().save(Triangle.class.getName(),triangle);
+    }
+
+    public List<Triangle> getTriangles() {
+
+        return getHibernateTemplate().loadAll(Triangle.class);
     }
 }
