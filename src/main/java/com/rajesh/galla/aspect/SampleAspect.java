@@ -17,14 +17,4 @@ public class SampleAspect {
         System.out.println("Before Advice");
     }
 
-    @Around("execution(public void setTriangleID(*)) && args(Long)")
-    public void setTriangleID(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-
-        Logger logger = Logger.getLogger("SampleAspect");
-        logger.info("@Around(\"execution(public void setTriangleID())\")");
-        Triangle triangle = (Triangle) proceedingJoinPoint.getTarget();
-        if (triangle.getTriangleID() == 0L ) {
-            proceedingJoinPoint.proceed();
-        }
-    }
 }

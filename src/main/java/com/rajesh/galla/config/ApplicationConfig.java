@@ -27,6 +27,7 @@ public class ApplicationConfig {
     @Bean
     public Triangle triangle() {
 
+        System.out.println("Accessing triangle bean");
         Triangle triangle = new Triangle();
         triangle.setPointA("pointA");
         triangle.setPointB("pointB");

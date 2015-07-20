@@ -16,10 +16,12 @@ import java.util.List;
  */
 
 @Repository
+@Transactional
 public class TriangleDAO extends HibernateDaoSupport {
 
-    @Transactional
     public void save(Triangle triangle) {
+
+        System.out.println("Transactional Triangle " + triangle);
         getHibernateTemplate().getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);
         getHibernateTemplate().save(Triangle.class.getName(),triangle);
     }
