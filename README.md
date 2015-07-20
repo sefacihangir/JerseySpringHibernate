@@ -9,3 +9,10 @@ The Technology stack is
 4.PostgreSQL,MySQL,Oracle (check database.properties)
 
 5.Tomcat container
+
+
+Easiest way to run the project:
+
+1. Import the project into and IDE
+2. Add the details of your database in database.properties
+3. Run SpringHibernateTest.java
