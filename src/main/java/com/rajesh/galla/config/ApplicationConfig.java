@@ -41,22 +41,6 @@ public class ApplicationConfig {
         return new SampleAspect();
     }
 
-//    @Bean
-//    public UserDetailsDAO userDetailsDAO() {
-//
-//        UserDetailsDAO userDetailsDAO = new UserDetailsDAO();
-//        userDetailsDAO.setSessionFactory(sessionFactory);
-//        return userDetailsDAO;
-//    }
-//
-//    @Bean
-//    public UserDetailsBO userDetailsBO() {
-//
-//        UserDetailsBO userDetailsBO = new UserDetailsBO();
-//        userDetailsBO.setUserDetailsDAO(userDetailsDAO());
-//        return userDetailsBO;
-//    }
-
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
