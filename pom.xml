@@ -23,7 +23,12 @@
 
     <dependencies>
 
-        <!-- Jersey -->
+        <!--Spring dependencies-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
@@ -83,14 +88,14 @@
             <scope>test</scope>
         </dependency>
 
+        <!--Spring dependencies-->
+
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
+            <artifactId>spring-web</artifactId>
             <version>${springframework.version}</version>
         </dependency>
 
-
-        <!--Spring dependencies-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
