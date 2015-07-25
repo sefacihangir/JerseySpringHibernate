@@ -242,7 +242,7 @@
         <jersey.version>2.19</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springframework.version>4.1.7.RELEASE</springframework.version>
-        <hibernate.version>3.5.4-Final</hibernate.version>
+        <hibernate.version>LATEST</hibernate.version>
         <hibernate.core.version>4.3.10.Final</hibernate.core.version>
         <mysql.version>5.1.36</mysql.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
