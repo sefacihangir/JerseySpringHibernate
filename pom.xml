@@ -154,12 +154,6 @@
             <version>${hibernate.core.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-
         <!-- the flexible XML framework for Java -->
         <dependency>
             <groupId>dom4j</groupId>
