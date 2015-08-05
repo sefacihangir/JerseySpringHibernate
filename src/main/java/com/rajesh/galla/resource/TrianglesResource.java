@@ -1,11 +1,10 @@
 package com.rajesh.galla.resource;
 
-import com.rajesh.galla.bo.TriangleBO;
+import com.rajesh.galla.bo.TriangleBOImplementation;
 import com.rajesh.galla.entity.Triangle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -21,12 +20,12 @@ import java.util.List;
 public class TrianglesResource {
 
     @Autowired
-    protected TriangleBO triangleBO;
+    protected TriangleBOImplementation triangleBOImplementation;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Triangle> getTriangles() {
 
-        return triangleBO.getTriangles();
+        return triangleBOImplementation.getTriangles();
     }
 }

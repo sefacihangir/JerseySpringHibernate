@@ -1,6 +1,6 @@
 package com.rajesh.galla.resource;
 
-import com.rajesh.galla.bo.UserDetailsBO;
+import com.rajesh.galla.bo.UserDetailsBOImplementation;
 import com.rajesh.galla.entity.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,7 +23,7 @@ public class UsersResource {
     public Logger logger = Logger.getLogger("Users Resource");
 
     @Autowired
-    private UserDetailsBO userDetailsBO;
+    private UserDetailsBOImplementation userDetailsBOImplementation;
 
     public UsersResource() {
     }
@@ -32,8 +32,8 @@ public class UsersResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDetails> getUsers() {
 
-        logger.info("userDetailsBO " + userDetailsBO);
-        return userDetailsBO.getUsers();
+        logger.info("userDetailsBO " + userDetailsBOImplementation);
+        return userDetailsBOImplementation.getUsers();
     }
 
 }

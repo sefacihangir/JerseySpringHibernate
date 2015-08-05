@@ -1,8 +1,6 @@
 package com.rajesh.galla.config;
 
 import com.rajesh.galla.aspect.SampleAspect;
-import com.rajesh.galla.bo.UserDetailsBO;
-import com.rajesh.galla.dao.UserDetailsDAO;
 import com.rajesh.galla.entity.Triangle;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

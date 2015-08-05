@@ -1,5 +1,6 @@
 package com.rajesh.galla.dao;
 
+import com.rajesh.galla.dao.intrface.UserDetailsDAO;
 import com.rajesh.galla.entity.UserDetails;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public class UserDetailsDAO extends HibernateDaoSupport{
+public class UserDetailsDAOImplementation extends HibernateDaoSupport implements UserDetailsDAO{
 
     public List<UserDetails> getUsers() {
 

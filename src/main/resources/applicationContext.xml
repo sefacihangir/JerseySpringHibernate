@@ -3,7 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
 
     <context:component-scan base-package="com.rajesh.galla, com.rajesh.galla.bo,
     com.rajesh.galla.dao, com.rajesh.galla.entity, com.rajesh.galla.config, com.rajesh.galla.resource" />
@@ -40,24 +41,24 @@
             <props>
                 <prop key="hibernate.dialect">${dialect}</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hbm2ddl}</prop>
             </props>
         </property>
         <property name="packagesToScan" value="com.rajesh.galla.entity"/>
     </bean>
 
-    <bean id="triangleBO" class="com.rajesh.galla.bo.TriangleBO">
+    <bean id="triangleBO" class="com.rajesh.galla.bo.TriangleBOImplementation">
     </bean>
 
-    <bean id="triangleDAO" class="com.rajesh.galla.dao.TriangleDAO">
+    <bean id="triangleDAO" class="com.rajesh.galla.dao.TriangleDAOImplementation">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="userDetailsBO" class="com.rajesh.galla.bo.UserDetailsBO">
+    <bean id="userDetailsBO" class="com.rajesh.galla.bo.UserDetailsBOImplementation">
         <property name="userDetailsDAO" ref="userDetailsDAO"/>
     </bean>
 
-    <bean id="userDetailsDAO" class="com.rajesh.galla.dao.UserDetailsDAO">
+    <bean id="userDetailsDAO" class="com.rajesh.galla.dao.UserDetailsDAOImplementation">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

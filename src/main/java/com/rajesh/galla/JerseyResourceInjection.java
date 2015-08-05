@@ -12,11 +12,11 @@ import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
  */
 
 
-public class MyApplication extends ResourceConfig{
+public class JerseyResourceInjection extends ResourceConfig{
 
-    public MyApplication() {
+    public JerseyResourceInjection() {
 
-        System.out.println("MyApplication");
+        System.out.println("JerseyResourceInjection");
         packages("com.rajesh.galla.resource");
     }
 }

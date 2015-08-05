@@ -1,6 +1,8 @@
 package com.rajesh.galla.bo;
 
-import com.rajesh.galla.dao.TriangleDAO;
+import com.rajesh.galla.bo.intrface.TriangleBO;
+import com.rajesh.galla.dao.TriangleDAOImplementation;
+import com.rajesh.galla.dao.intrface.TriangleDAO;
 import com.rajesh.galla.entity.Triangle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +14,7 @@ import java.util.List;
  */
 
 @Component
-public class TriangleBO {
+public class TriangleBOImplementation implements TriangleBO{
 
     @Autowired
     TriangleDAO triangleDAO;
@@ -25,11 +27,13 @@ public class TriangleBO {
         this.triangleDAO = triangleDAO;
     }
 
+    @Override
     public void save(Triangle triangle) {
 
         triangleDAO.save(triangle);
     }
 
+    @Override
     public List<Triangle> getTriangles() {
 
         return triangleDAO.getTriangles();

@@ -1,6 +1,8 @@
 package com.rajesh.galla.bo;
 
-import com.rajesh.galla.dao.UserDetailsDAO;
+import com.rajesh.galla.bo.intrface.UserDetailsBO;
+import com.rajesh.galla.dao.UserDetailsDAOImplementation;
+import com.rajesh.galla.dao.intrface.UserDetailsDAO;
 import com.rajesh.galla.entity.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,19 +14,15 @@ import java.util.List;
  */
 
 @Component
-public class UserDetailsBO {
+public class UserDetailsBOImplementation implements UserDetailsBO{
 
     @Autowired
     private UserDetailsDAO userDetailsDAO;
     private List<UserDetails> users;
 
-    public UserDetailsBO() {
+    public UserDetailsBOImplementation() {
     }
 
-    public List<UserDetails> setUsers() {
-
-        return userDetailsDAO.putUser();
-    }
 
     public UserDetailsDAO getUserDetailsDAO() {
         return userDetailsDAO;
@@ -34,10 +32,18 @@ public class UserDetailsBO {
         this.userDetailsDAO = userDetailsDAO;
     }
 
+    @Override
+    public List<UserDetails> setUsers() {
+
+        return userDetailsDAO.putUser();
+    }
+
+    @Override
     public List<UserDetails> getUsers() {
         return users;
     }
 
+    @Override
     public List<UserDetails> postUser() {
         return null;
     }

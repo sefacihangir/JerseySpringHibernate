@@ -1,6 +1,6 @@
 package com.rajesh.galla.resource;
 
-import com.rajesh.galla.bo.UserDetailsBO;
+import com.rajesh.galla.bo.UserDetailsBOImplementation;
 import com.rajesh.galla.entity.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,7 +17,7 @@ public class UserResource {
     public Logger logger = Logger.getLogger("User Resource");
 
     @Autowired
-    private UserDetailsBO userDetailsBO;
+    private UserDetailsBOImplementation userDetailsBOImplementation;
 
     public UserResource() {
     }
@@ -27,8 +27,8 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDetails> getUsers() {
 
-        logger.info("userDetailsBO " + userDetailsBO);
-        return userDetailsBO.getUsers();
+        logger.info("userDetailsBO " + userDetailsBOImplementation);
+        return userDetailsBOImplementation.getUsers();
     }
 
     @POST
@@ -36,23 +36,23 @@ public class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public List<UserDetails> postUser() {
 
-        logger.info("userDetailsBO " + userDetailsBO);
-        return userDetailsBO.postUser();
+        logger.info("userDetailsBO " + userDetailsBOImplementation);
+        return userDetailsBOImplementation.postUser();
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDetails> putUser() {
 
-        logger.info("userDetailsBO " + userDetailsBO);
-        return userDetailsBO.setUsers();
+        logger.info("userDetailsBO " + userDetailsBOImplementation);
+        return userDetailsBOImplementation.setUsers();
     }
 
-    public UserDetailsBO getUserDetailsBO() {
-        return userDetailsBO;
+    public UserDetailsBOImplementation getUserDetailsBOImplementation() {
+        return userDetailsBOImplementation;
     }
 
-    public void setUserDetailsBO(UserDetailsBO userDetailsBO) {
-        this.userDetailsBO = userDetailsBO;
+    public void setUserDetailsBOImplementation(UserDetailsBOImplementation userDetailsBOImplementation) {
+        this.userDetailsBOImplementation = userDetailsBOImplementation;
     }
 }

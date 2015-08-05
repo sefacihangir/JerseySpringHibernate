@@ -1,5 +1,6 @@
 package com.rajesh.galla.dao;
 
+import com.rajesh.galla.dao.intrface.TriangleDAO;
 import com.rajesh.galla.entity.Triangle;
 import org.hibernate.FlushMode;
 import org.hibernate.SessionFactory;
@@ -17,8 +18,9 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class TriangleDAO extends HibernateDaoSupport {
+public class TriangleDAOImplementation extends HibernateDaoSupport implements TriangleDAO{
 
+    @Override
     public void save(Triangle triangle) {
 
         System.out.println("Transactional Triangle " + triangle);
@@ -26,6 +28,7 @@ public class TriangleDAO extends HibernateDaoSupport {
         getHibernateTemplate().save(Triangle.class.getName(),triangle);
     }
 
+    @Override
     public List<Triangle> getTriangles() {
 
         return getHibernateTemplate().loadAll(Triangle.class);
